@@ -11,13 +11,14 @@ import random
 print ("Rolling dice...")
 
 def roll():
-    x = random.randint(1, 7)
-    y = random.randint(1, 7)
-    total = x + y
-    print("Die 1:", random.randint(x, y))
-    print("Die 2:", random.randint(x, y))
-    print("Total:", str(total))
-    return total
+    min = 1
+    max = 6
+    dice1 = random.randint(min, max)
+    print("Die 1:", dice1)
+    dice2 = random.randint(min, max)
+    print("Die 2:", dice2)
+    usertotal = dice1 + dice2
+    print("Total:", usertotal)
 roll()
 
 

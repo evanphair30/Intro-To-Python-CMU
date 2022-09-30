@@ -32,6 +32,8 @@
 
 # importing the module
 import sys
+import os
+from pathlib import Path
 from PIL import Image
 
 
@@ -47,20 +49,31 @@ from PIL import Image
 program = sys.argv[0]
 arg1 = sys.argv[1]
 arg2 = sys.argv[2]
-  
+
+#formats = {"jpg","jpeg","png","bmp","tiff"}
+
+
+#image_path = "path/to/image"
+
+#os.mkdir(image_path)
+#image = image.save(f"{image_path}/image.png")
 
 image = Image.open(arg1)
 
-format = image.save("dopes.png")
+#Extract the filenemae from the file and extension
+noext = os.path.splitext(arg1)[0]
 
+# Combine the filename and the new input
+test = (noext + "." + arg2)
 
-print("Converting", arg1, "to", arg2)
+# Save the image
+format = image.save(test)
+
+print("Converting", arg1, "to", test)
   
 # displaying the arguments
 print("arg1 : " + arg1)
 print("arg2 : " + arg2)
-#print("Number of arguments : ", len(sys.argv))
-#print(sys.argv)
 
 # displaying the program name
 print("Program name : " + program)

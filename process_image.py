@@ -50,18 +50,29 @@ program = sys.argv[0]
 arg1 = sys.argv[1]
 arg2 = sys.argv[2]
 
-#formats = {"jpg","jpeg","png","bmp","tiff"}
 
 
 #image_path = "path/to/image"
 
 #os.mkdir(image_path)
 #image = image.save(f"{image_path}/image.png")
-
 image = Image.open(arg1)
 
 #Extract the filenemae from the file and extension
 noext = os.path.splitext(arg1)[0]
+
+
+if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
+    sys.exit('Error: File Extension not allowed')
+
+
+#if arg2 == "":
+#    print("error")
+#    exit
+#elif arg2 = ""
+
+
+
 
 # Combine the filename and the new input
 test = (noext + "." + arg2)

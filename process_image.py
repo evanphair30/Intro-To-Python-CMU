@@ -38,11 +38,7 @@ from PIL import Image
 
 
 # error if statement
-#if len(sys.argv) != 2:
-#    print('error. please provide an input file.')
-#    print()
-#    print("usage: python process_image.py <file>.")
-#    sys.exit(1)
+
 
 
 # storing the arguments
@@ -50,7 +46,11 @@ program = sys.argv[0]
 arg1 = sys.argv[1]
 arg2 = sys.argv[2]
 
+if not arg1:
+    sys.exit('Error: No files')
 
+if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
+    sys.exit('Error: File Extension not allowed')
 
 #image_path = "path/to/image"
 
@@ -60,19 +60,6 @@ image = Image.open(arg1)
 
 #Extract the filenemae from the file and extension
 noext = os.path.splitext(arg1)[0]
-
-
-if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
-    sys.exit('Error: File Extension not allowed')
-
-
-#if arg2 == "":
-#    print("error")
-#    exit
-#elif arg2 = ""
-
-
-
 
 # Combine the filename and the new input
 test = (noext + "." + arg2)

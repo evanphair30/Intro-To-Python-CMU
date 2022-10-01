@@ -64,7 +64,58 @@ noext = os.path.splitext(arg1)[0]
 
 # Combine the filename and the new input
 test = (noext + "." + arg2)
+# importing the module
+import sys
+import os
+from pathlib import Path
+from PIL import Image
 
+
+try:  
+# storing the arguments
+    program = sys.argv[0]
+    arg1 = sys.argv[1]
+    arg2 = sys.argv[2]
+except IndexError as e:
+    print ('Error: No files')
+    sys.exit()
+
+
+
+#if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
+#    sys.exit('Error: File Extension not allowed')
+
+isdir = os.path.isdir(arg1)
+print(isdir)
+
+isExist = os.path.exists(arg1)
+print(isExist)
+
+#image_path = "path/to/image"
+
+#os.mkdir(image_path)
+#image = image.save(f"{image_path}/image.png")
+
+
+image = Image.open(arg1)
+
+#Extract the filenemae from the file and extension
+noext = os.path.splitext(arg1)[0]
+
+# Combine the filename and the new input
+test = (noext + "." + arg2)
+
+# Save the image
+format = image.save(test)
+
+print("Converting", arg1, "to", test)
+  
+# displaying the arguments
+print("arg1 : " + arg1)
+print("arg2 : " + arg2)
+
+# displaying the program name
+print("Program name : " + program)
 # Save the image
 format = image.save(test)
 

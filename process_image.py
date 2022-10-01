@@ -37,25 +37,33 @@ from pathlib import Path
 from PIL import Image
 
 
-# error if statement
-
-
-
+try:  
 # storing the arguments
-program = sys.argv[0]
-arg1 = sys.argv[1]
-arg2 = sys.argv[2]
+    program = sys.argv[0]
+    arg1 = sys.argv[1]
+    arg2 = sys.argv[2]
+except IndexError as e:
+    print ('Error: No files')
+    sys.exit()
 
-if not arg1:
-    sys.exit('Error: No files')
 
-if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
-    sys.exit('Error: File Extension not allowed')
+
+#if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
+#    sys.exit('Error: File Extension not allowed')
 
 #image_path = "path/to/image"
 
 #os.mkdir(image_path)
 #image = image.save(f"{image_path}/image.png")
+
+def add(m, n):
+    try:
+        sum = m + n
+    except TypeError:
+        print('Error: unable to add values of differing types')
+        return None
+    return sum
+
 image = Image.open(arg1)
 
 #Extract the filenemae from the file and extension
@@ -75,3 +83,5 @@ print("arg2 : " + arg2)
 
 # displaying the program name
 print("Program name : " + program)
+
+

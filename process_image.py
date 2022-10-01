@@ -48,13 +48,14 @@ except IndexError as e:
 
 
 
-#if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
-#    sys.exit('Error: File Extension not allowed')
+if arg2 != "jpg" or arg2 != "jpeg" or arg2 != "png" or arg2 != "bmp" or arg2 != "tiff":
+    sys.exit('Error: File Extension not allowed')
 
 #image_path = "path/to/image"
 
 #os.mkdir(image_path)
 #image = image.save(f"{image_path}/image.png")
+
 
 image = Image.open(arg1)
 
@@ -75,5 +76,4 @@ print("arg2 : " + arg2)
 
 # displaying the program name
 print("Program name : " + program)
-
 

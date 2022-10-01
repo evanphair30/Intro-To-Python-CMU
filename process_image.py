@@ -56,14 +56,6 @@ except IndexError as e:
 #os.mkdir(image_path)
 #image = image.save(f"{image_path}/image.png")
 
-def add(m, n):
-    try:
-        sum = m + n
-    except TypeError:
-        print('Error: unable to add values of differing types')
-        return None
-    return sum
-
 image = Image.open(arg1)
 
 #Extract the filenemae from the file and extension

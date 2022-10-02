@@ -27,6 +27,7 @@
 
 import datetime
 import sys
+import os
 import requests as req
 
 program = sys.argv[0]
@@ -38,9 +39,10 @@ resp = req.get(arg1)
 
 print (resp.status_code)
 
-if resp.status_code != "200":
+def status(c):
+    if resp.status_code != "200":
         print ("UP")
-else:
+    else:
         print ("Down")
 
 #print(arg1)
@@ -62,6 +64,14 @@ except:
     # threw an exception
     print ("High response time")
 
+for hostname in arg1:
+    response = os.system('ping -c 1 ' + hostname)
+    if response == 0:
+        print(hostname, 'is up')
+    else:
+        print(hostname, 'is down')
+
+
 #counter = 0
 #while counter < 1800:
 #    req = Requester(arg1)
@@ -70,9 +80,3 @@ except:
 #    time.sleep(1)
 
 print(ts, arg1, resp.status_code)
-
-
-
-
-
-

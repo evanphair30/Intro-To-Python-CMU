@@ -35,7 +35,7 @@ import requests as req
 hostname = sys.argv[1]
 #arg2 = sys.argv[2]
 
-resp = req.get(hostname)
+#resp = req.get(hostname)
 
 # ts stores the time in seconds
 ts = datetime.datetime.now()
@@ -54,8 +54,8 @@ response = os.system("ping -c 1 " + hostname)
 
 #and then check the response...
 if response == 0:
-  print (hostname, 'is up!')
+  print (ts, hostname, 'UP')
 else:
-  print (hostname, 'is down!')
+  print (ts, hostname, 'DOWN')
 
 print (hostname)

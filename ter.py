@@ -45,12 +45,14 @@ r = requests.get(hostname, verify=False, timeout=int(arg2)).elapsed.total_second
 
 print (hostname)
 
-if not r:
-    print ('DOWN')
-else:
-    print ('UP')
+class test:
+    if not r:
+        print (current_time,hostname,'DOWN',r)
+    else:
+        print (current_time,hostname,'UP',r)
 
-print (current_time,hostname,r)
+
+#print (current_time,hostname,r)
 
 parsed = urlparse(hostname)
 hostnames = parsed.hostname
@@ -68,3 +70,9 @@ print (ipaddress)
 #        break
 #    else:
 #        os.system('ping -n ' + ipaddress)
+
+
+line = "{}\t{}\t{}\n".format(current_time, hostname, r)
+ 
+with open("foo.log", "a") as f:
+    f.write(line)

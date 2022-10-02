@@ -36,23 +36,8 @@ arg2 = sys.argv[2]
 
 resp = req.get(arg1)
 
-
-print (resp.status_code)
-
-def status(c):
-    if resp.status_code != "200":
-        print ("UP")
-    else:
-        print ("Down")
-
-#print(arg1)
-#print(arg1.elapsed)
-
 # ts stores the time in seconds
 ts = datetime.datetime.now()
-  
-# print the current timestamp
-#print(ts) 
   
 try:
     time = req.get(arg1).elapsed.total_seconds(arg2)
@@ -70,13 +55,5 @@ for hostname in arg1:
         print(hostname, 'is up')
     else:
         print(hostname, 'is down')
-
-
-#counter = 0
-#while counter < 1800:
-#    req = Requester(arg1)
-#    req.start()
-#    counter++
-#    time.sleep(1)
 
 print(ts, arg1, resp.status_code)

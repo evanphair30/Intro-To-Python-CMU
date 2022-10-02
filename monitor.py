@@ -26,34 +26,36 @@
 
 
 import datetime
+import socket
 import sys
 import os
 import requests as req
 
-program = sys.argv[0]
-arg1 = sys.argv[1]
-arg2 = sys.argv[2]
+#program = sys.argv[0]
+hostname = sys.argv[1]
+#arg2 = sys.argv[2]
 
-resp = req.get(arg1)
+resp = req.get(hostname)
 
 # ts stores the time in seconds
 ts = datetime.datetime.now()
   
-try:
-    time = req.get(arg1).elapsed.total_seconds(arg2)
-    if time < 1:
-        print ("Low response time")
-    else:
-        print ("High response time")
-except:
-    # threw an exception
-    print ("High response time")
+#try:
+#    time = req.get(hostname).elapsed.total_seconds(arg2)
+#    if time < 1:
+#        print ("Low response time")
+#    else:
+#        print ("High response time")
+#except:
+#    # threw an exception
+#    print ("High response time")
 
-for hostname in arg1:
-    response = os.system('ping -c 1 ' + hostname)
-    if response == 0:
-        print(hostname, 'is up')
-    else:
-        print(hostname, 'is down')
+response = os.system("ping -c 1 " + hostname)
 
-print(ts, arg1, resp.status_code)
+#and then check the response...
+if response == 0:
+  print (hostname, 'is up!')
+else:
+  print (hostname, 'is down!')
+
+print (hostname)

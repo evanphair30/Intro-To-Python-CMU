@@ -45,11 +45,11 @@ r = requests.get(hostname, verify=False, timeout=int(arg2)).elapsed.total_second
 
 print (hostname)
 
-class test:
-    if not r:
-        print (current_time,hostname,'DOWN',r)
-    else:
-        print (current_time,hostname,'UP',r)
+#class test:
+#    if not r:
+#        print (current_time,hostname,'DOWN',r)
+#    else:
+#        print (current_time,hostname,'UP',r)
 
 
 #print (current_time,hostname,r)
@@ -70,6 +70,16 @@ print (ipaddress)
 #        break
 #    else:
 #        os.system('ping -n ' + ipaddress)
+
+
+count = 0
+while (count < int(arg2)):
+    if not r:
+        print (current_time,hostname,'DOWN',r)
+    else:
+        print (current_time,hostname,'UP',r)
+    count = count + 1
+
 
 
 line = "{}\t{}\t{}\n".format(current_time, hostname, r)

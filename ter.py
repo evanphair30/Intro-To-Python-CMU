@@ -27,6 +27,7 @@ import datetime
 import socket
 import sys
 import os
+import time
 import urllib3
 import requests
 from urllib.parse import urlparse
@@ -45,6 +46,10 @@ r = requests.get(hostname, verify=False, timeout=int(arg2)).elapsed.total_second
 
 print (hostname)
 
+#print ("Start : %s" % time.ctime())
+#time.sleep(int(arg2))
+#print ("End : %s" % time.ctime())
+
 #class test:
 #    if not r:
 #        print (current_time,hostname,'DOWN',r)
@@ -61,7 +66,6 @@ ipaddress = socket.gethostbyname(hostnames)
 print (ipaddress)
 #IPAddr=socket.gethostbyname(urlparse(hostname))
 
-
 #while True:
 #    os.system('cls')
 
@@ -71,13 +75,16 @@ print (ipaddress)
 #    else:
 #        os.system('ping -n ' + ipaddress)
 
+#yes = time.sleep(int(arg2))
 
 count = 0
 while (count < int(arg2)):
     if not r:
-        print (current_time,hostname,'DOWN',r)
+        d=('DOWN')
+        print (current_time,hostname,d,r)
     else:
-        print (current_time,hostname,'UP',r)
+        u=('UP')
+        print (current_time,hostname,u,r)
     count = count + 1
 
 

@@ -29,6 +29,7 @@ import sys
 import os
 import urllib3
 import requests
+from urllib.parse import urlparse
 from datetime import datetime
 
 #program = sys.argv[0]
@@ -51,8 +52,19 @@ else:
 
 print (current_time,hostname,r)
 
+parsed = urlparse(hostname)
+hostnames = parsed.hostname
+ipaddress = socket.gethostbyname(hostnames)
 
-line = "{}\t{}\t{}\n".format(current_time, hostname, r)
- 
-with open("foo.log", "a") as f:
-    f.write(line)
+print (ipaddress)
+#IPAddr=socket.gethostbyname(urlparse(hostname))
+
+
+#while True:
+#    os.system('cls')
+
+#    if ipaddress == 'quit':
+#        print('script terminated')
+#        break
+#    else:
+#        os.system('ping -n ' + ipaddress)

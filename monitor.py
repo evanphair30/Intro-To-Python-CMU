@@ -33,7 +33,7 @@ import requests as req
 
 #program = sys.argv[0]
 hostname = sys.argv[1]
-#arg2 = sys.argv[2]
+arg2 = sys.argv[2]
 
 #resp = req.get(hostname)
 
@@ -50,7 +50,8 @@ ts = datetime.datetime.now()
 #    # threw an exception
 #    print ("High response time")
 
-response = os.system("ping -c 1 " + hostname)
+response = os.system("ping -c 3 " + hostname)
+
 
 #and then check the response...
 if response == 0:
@@ -59,3 +60,21 @@ else:
   print (ts, hostname, 'DOWN')
 
 print (hostname)
+
+
+ip = socket.gethostbyname(hostname)
+
+while True:
+    os.system('cls')
+
+    if ip == 'quit':
+        print('script terminated')
+        break
+    else:
+        os.system('ping -n 10 ' + ip)
+
+
+#with open("myfile.txt", "w") as file1:
+    # Writing data to a file
+#    file1.write("Hello \n")
+#    file1.writelines(response)

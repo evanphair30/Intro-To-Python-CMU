@@ -81,9 +81,11 @@ count = 0
 while (count < int(arg2)):
     if not r:
         d=('DOWN')
+        yes = time.sleep(int(arg2))
         print (current_time,hostname,d,r)
     else:
         u=('UP')
+        yes = time.sleep(int(arg2))
         print (current_time,hostname,u,r)
     count = count + 1
 

@@ -14,17 +14,26 @@ def result():
       result = request.form
       return render_template("result.html",result = result)
 
-@app.route("/edit",methods = ['POST', 'GET'])
+@app.route("/edit",methods = ['PUT', 'GET'])
 def edit():
-    return "Homepage of GeeksForGeeks"
+    if request.method == 'PUT':
+        return "Homepage of GeeksForGeeks"
+    elif request.method == 'GET':
+        return "Hello"
 
 @app.route("/remove",methods = ['DELETE'])
 def remove():
-    return "Homepage of GeeksForGeeks"
+    if request.method == 'DELETE':
+        return "Homepage of GeeksForGeeks"
 
 @app.route("/home/<home_id>", methods=['GET', 'PUT', 'DELETE'])
 def individual():
-    return "Homepage of GeeksForGeeks"
+    if request.method == 'GET':
+        return "Homepage of GeeksForGeeks"
+    elif request.method == 'PUT':
+        return "Homepage of GeeksForGeeks"
+    elif request.method == 'DELETE':
+        return "Homepage of GeeksForGeeks"
   
 if __name__ == "__main__":
     app.run(debug=True)

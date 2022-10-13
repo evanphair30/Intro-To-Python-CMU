@@ -12,49 +12,36 @@ print (data)
 def home():
     return render_template('home.html',title="Home Page")
 
-# Pass the required route to the decorator.
-#@app.route('/result',methods = ['POST', 'GET'])
-#def result():
-#   if request.method == 'POST':
-#      result = request.form
-#      return render_template("result.html",result = result)
 
-@app.route('/results',methods = ['POST', 'GET'])
-def data():
-    data = request.get_json
-    test = request.form
-    print(test)
-    return jsonify(request.form)
 
-#@app.route('/result',methods = ['POST', 'GET'])
-#def data():
-#    data = request.get_json
-#    print(data)
-#    return jsonify(request.form)
-
-@app.route("/edit",methods = ['PUT', 'GET'])
-def edit():
-    if request.method == 'PUT':
-        return "Homepage of GeeksForGeeks"
-    elif request.method == 'GET':
-        data = request.get_json
-        test = request.form
-        print(test)
-        return jsonify(request.form)
-
-@app.route("/remove",methods = ['DELETE'])
-def remove():
-    return render_template('remove.html',title="Remove")
-        
-
-@app.route("/<home_id>", methods=['GET', 'PUT', 'DELETE'])
-def individual():
+@app.route('/api/roster', methods=['GET', 'POST'])
+def api_roster():
     if request.method == 'GET':
-        return "Homepage of GeeksForGeeks"
+        return make_response(jsonify(data), 200)
+    elif request.method == 'POST':
+        content = request.json
+        roster_id = content['id']
+        data['id'] = content
+        data_obj = data.get(roster_id, {})
+        return make_response(jsonify(data_obj), 201)
+
+@app.route('/api/lineup/<roster_id>', methods=['GET', 'PUT', 'DELETE'])
+def api_each_book(roster_id):
+    if request.method == 'GET':
+        data_obj = data.get(roster_id, {})
+        if data_obj:
+            return make_response(jsonify(data_obj), 200)
+        else:
+            return make_response(jsonify(data_obj), 404)
     elif request.method == 'PUT':
-        return "Homepage of GeeksForGeeks"
-    elif request.method == 'DELETE':
-        return "Homepage of GeeksForGeeks"
+        content = request.json
+        data['id'] = content
+        data_obj = data.get(roster_id, {})
+        return make_response(jsonify(data_obj), 200)
+#    elif request.method == 'DELETE':
+#        if roster_id in data:
+#            del data(roster_id)
+#        return make_response(jsonify({}),204)
   
 if __name__ == "__main__":
     app.run(debug=True)

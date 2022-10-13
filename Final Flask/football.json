@@ -1,5 +1,7 @@
 {
     "1":{
+        "id": "1",
+        "week": "1",
         "position": "QB",
         "name": "Tom Brady",
         "team": "Tampa Bay Buccaneers",
@@ -9,6 +11,8 @@
     },
 
     "2":{
+        "id": "2",
+        "week": "1",
         "position": "RB",
         "name": "Saquan Barkley",
         "team": "New York Giants",

@@ -1,0 +1,19 @@
+{
+    "1":{
+        "position": "QB",
+        "name": "Tom Brady",
+        "team": "Tampa Bay Buccaneers",
+        "opponent": "Atlanta Falcons",
+        "playersalary": "7800",
+        "contest": "Classic"
+    },
+
+    "2":{
+        "position": "RB",
+        "name": "Saquan Barkley",
+        "team": "New York Giants",
+        "opponent": "Dallas Cowboys",
+        "playersalary": "5000",
+        "contest": "Classic"
+    }
+}

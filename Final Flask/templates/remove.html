@@ -1,0 +1,27 @@
+<html>
+   <body>
+    <h1>Remove Players from your Lineup</h1>
+    <a href="https://www.fantasypros.com/daily-fantasy/nfl/draftkings-salary-changes.php" target="_blank">Need to see the Draftkings Salaries this weeks. Check this link!</a>
+    <form action = "http://localhost:5000/remove" method = "post">
+        <p>Position</p>
+        <p><input type = "text" name = "positon" /></p>
+        <p>Name</p>
+        <p><input type = "text" name = "name" /></p>
+        <p>Team</p>
+        <p><input type = "text" name = "team" /></p>
+        <p>Opponent</p>
+        <p><input type = "text" name = "opponent" /></p>
+        <p>Player Salary</p>
+        <p><input type = "text" name = "playersalary" /></p>
+        <p>Contest Type</p>
+        <p><input type = "text" name = "contesttype" /></p>
+        <p><input type = "submit" value = "submit" /></p>
+     </form>
+    <nav>  
+      <a href="http://localhost:5000/result" target="_blank">See your Lineup</a><br>
+      <a href="http://localhost:5000/edit" target="_blank">Need to Update My Lineup?</a><br>
+      <a href="http://localhost:5000/remove" target="_blank">Need to Remove My Lineup?</a><br>
+      <a href="http://localhost:5000" target="_blank">Want to see an Indivduals Players stats</a>
+    </nav>    
+   </body>
+</html>
